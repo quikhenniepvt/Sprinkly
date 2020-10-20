@@ -1,0 +1,39 @@
+{% extends "nav.html" %}
+{% block body %}
+
+<div class="container">
+    &nbsp;
+    <h4>Home</h4>
+    &nbsp;
+    <form method="post" action="/">
+        <ul class="list-group">
+            <li class="list-group-item bg-muted"><strong>Sprinkler channels</strong></li>
+            {% for c in config %}
+            <li class="list-group-item"><a href="#">Channel&nbsp;{{c.number}}&nbsp;-&nbsp;{{c.description}} - {{c.state}}</a>
+                    <input name="toggle-switch" type="checkbox" {% if c.state %} checked {% endif %} data-toggle="toggle" data-onstyle="success" data-size="xs" data-id="{{c.number}}">
+                </li>
+
+            {% endfor %}
+        </ul>
+
+        <table>
+            <tr>
+                <th>Schedule</th>
+                <th>Seq</th>
+            </tr>
+
+            {% for c in config%}
+                <tr>
+                    <td>{{c.description}}</td>
+                    <td><input type="text" /></td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </form>
+</div>
+
+{% endblock %}
+

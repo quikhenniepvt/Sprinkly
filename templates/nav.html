@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4 | Sprinklers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  <link rel="text/css" href="{{ url_for('static', filename='bootstrap.css.map') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-datetimepicker.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='switch.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-select.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='mystyles.css') }}">
+
+  {{ fontawesome_css() }}
+  <style>
+    .list-group-item.list-group-item-action {
+      background-color: lightgrey !important;
+    }
+    .toggle.btn {
+      float: right !important;
+    }
+
+  </style>
+</head>
+<body class="body">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/home">Sprinklers</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!--li class="nav-item active">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li-->
+      <!--li class="nav-item">
+        <a class="nav-link" href="/setup">Setup</a>
+      </li-->
+    </ul>
+
+    <a href="/setup" class="fa fa-cog"></a>
+  </div>
+</nav>
+
+<body>
+        {% block body %}
+
+		{% endblock %}
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='moment.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap-datepicker.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap-datetimepicker.js') }}"></script>
+<script src="{{ url_for('static', filename='switch.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap-select.js') }}"></script>
+
+{{ fontawesome_js() }}
+
+<script type="text/javascript">
+  $(function () {
+    var date_input=$('input[name="date"]');
+    var options={
+        format: 'mm/dd/yyyy',
+        todayHighlight: true,
+        autoclose: true
+     };
+    $('.dtp').datetimepicker();
+    $(".selectpicker").selectpicker();
+
+    $('[name=toggle-switch]').change(function(e) {
+      console.log($(e.target).attr('data-id')+" - "+$(this).prop('checked'));
+      channel = $(e.target).attr('data-id');
+      toggleStatus = $(this).prop('checked');
+      if (toggleStatus === true) {
+        $.post("/open?channel="+channel, function(data) { console.log(data); });
+      } else {
+        $.post("/close?channel="+channel, function(data) { console.log(data); });
+      }
+    })
+  });
+</script>
+
+</body>
+</html>

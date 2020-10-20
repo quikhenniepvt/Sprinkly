@@ -1,0 +1,10 @@
+@font-face {
+    font-family: <Font_name>
+    src: {{ url_for('static',filename='webfonts/fa-brands-400.ttf') }} ;
+}
+
+a.fa {
+    text-decoration: none !important;
+}
+
+

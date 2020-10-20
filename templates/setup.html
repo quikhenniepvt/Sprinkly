@@ -1,0 +1,145 @@
+
+{% extends "nav.html" %}
+{% block body %}
+    <div class="container">
+        <form action="/setup" method="POST">
+
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>&nbsp;Setup</h4></div>
+              <div class="panel-body">
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-action" aria-disabled="true">
+                          <b>Channel1</b>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="row">
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                        {{form.gpio1.label}}
+                                      {{form.gpio1(class="form-control")}}
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.desc1.label}}
+                                      {{form.desc1(size=30,class="form-control")}}
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.defmin1.label}}
+                                      {{form.defmin1(size=3,class="form-control")}}
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                    </ul>
+                    <br>
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-action" aria-disabled="true">
+                          <b>Channel 2</b>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="row">
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                        {{form.gpio2.label}}
+                                      {{form.gpio2(class="form-control")}}
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.desc2.label}}
+                                      {{form.desc2(size=30,class="form-control")}}
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.defmin2.label}}
+                                      {{form.defmin2(size=3,class="form-control")}}
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                    </ul>
+                    <br>
+
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-action" aria-disabled="true">
+                          <b>Channel 3</b>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="row">
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                        {{form.gpio3.label}}
+                                      {{form.gpio3(class="form-control")}}
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.desc3.label}}
+                                      {{form.desc3(size=30,class="form-control")}}
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.defmin3.label}}
+                                      {{form.defmin3(size=3,class="form-control")}}
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                    </ul>
+
+                    <br>
+                   <ul class="list-group">
+                      <li class="list-group-item list-group-item-action" aria-disabled="true">
+                          <b>Channel 4</b>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="row">
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                        {{form.gpio4.label}}
+                                      {{form.gpio4(class="form-control")}}
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.desc4.label}}
+                                      {{form.desc4(size=30,class="form-control")}}
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3">
+                                  <div class="form-group">
+                                      {{form.defmin4.label}}
+                                      {{form.defmin4(size=3,class="form-control")}}
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                    </ul>
+              </div>
+            </div>
+
+
+
+            <br>
+
+            <button type="submit" class="btn btn-success" value="save">Save</button>
+
+            <br>
+            <br>
+            {{ form.csrf_token }}
+        </form>
+    </div>
+
+
+
+
+{% endblock %}

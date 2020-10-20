@@ -1,0 +1,28 @@
+{
+    "channels": [
+        {
+            "number": "1",
+            "gpio": "18",
+            "description": "Water tank",
+            "def_minutes": "10"
+        },
+        {
+            "number": "2",
+            "gpio": "19",
+            "description": "Veggie garden",
+            "def_minutes": "10"
+        },
+        {
+            "number": "3",
+            "gpio": "20",
+            "description": "Bedroom window",
+            "def_minutes": "10"
+        },
+        {
+            "number": "4",
+            "gpio": "21",
+            "description": "Pool",
+            "def_minutes": "10"
+        }
+    ]
+}
